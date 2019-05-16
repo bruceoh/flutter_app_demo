@@ -1,12 +1,13 @@
 import 'package:rxdart/rxdart.dart';
 
+
 class CounterBloc {
 
   int initialCount = 0; //if the data is not passed by paramether it initializes with 0
   BehaviorSubject<int> _subjectCounter;
 
   CounterBloc({this.initialCount}){
-   _subjectCounter = new BehaviorSubject<int>(seedValue: initialCount); //initializes the subject with element already
+   _subjectCounter = new BehaviorSubject<int>.seeded(initialCount); //initializes the subject with element already
   }
 
   Observable<int> get counterObservable => _subjectCounter.stream; 
